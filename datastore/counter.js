@@ -52,11 +52,10 @@ exports.getNextUniqueId = (callback) => {
       throw ('error');
     }
     id = id + 1;
-    writeCounter(id, callback);
-
+    writeCounter(id, (err, id) => {
+      callback(err, id);
+    });
   });
-  //readCounter(callback);
-  //counter = counter +
 };
 
 
